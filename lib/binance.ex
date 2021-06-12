@@ -174,7 +174,7 @@ defmodule Binance do
    ```
   """
 
-  def get_klines(symbol, interval, start_time \\ 0, end_time \\ 9999999999999, limit \\ 500) when is_binary(symbol) do
+  def get_klines_in_time_range(symbol, interval, start_time \\ 0, end_time \\ 9999999999999, limit \\ 500) when is_binary(symbol) do
     case HTTPClient.get_binance(
            "/api/v3/klines?symbol=#{symbol}&interval=#{interval}&limit=#{limit}&startTime=#{start_time}&endTime=#{end_time}"
          ) do
